@@ -1,4 +1,4 @@
-﻿# c-StackQueue
+﻿# cPlusPlus-StackQueue
 
 
 Simple Apothecary simulation:
