@@ -35,24 +35,24 @@ bool Apothecary::OrderPotion(PotionType& passPotionType)
 
 int Apothecary::MakePotions()
 {
-
-	/*
-
 	//Remove item from the queue, and pass to the stack
-	int result = NEGATIVE_ONE;
+	int count = ZERO;
 	while (shelf.GetShelfPotionCount() < shelf.GetShelfLimit() &&
 		!potionFactory.IsEmptyList())
 	{
 		//create stack pointers for each node in queue
 		//get rid of queue
 		Node * topOfStack = potionFactory.DequeueNext();
-
-		//shelf.AppendHead(potionFactory.Dequeue());
+		topOfStack->SetNext(nullptr);
+		shelf.AppendHead(*topOfStack);
+		shelf.IncrementShelfPotionCount();
 
 		//potionFactory.MakeAllOrders();
-		result = ONE;
+		count++;
 		
 	} 
-	*/
-	return ZERO;
+	PrintOrderList();
+	PrintPotionList();
+
+	return count;
 }

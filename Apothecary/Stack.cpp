@@ -16,6 +16,11 @@ int Stack::Push(const Potion&)
 	return ZERO;
 }
 
+int Stack::PrintShelfPotionList()
+{
+	shelfPotionList.PrintList();
+}
+
 //remove data from the top of the stack
 int Stack::Pop(Potion&) 
 {

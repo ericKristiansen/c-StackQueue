@@ -40,9 +40,6 @@ bool PotionFactory::CreateOrder(PotionType& passPotionType)
 		result = true;
 	}
 
-	cout << "Created order:";
-	PrintList();
-
 	return result;
 }
 

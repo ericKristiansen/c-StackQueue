@@ -30,6 +30,8 @@ class Stack : public LinkedList
 		//is the stack empty?
 		int IsEmpty()const;
 
+		int PrintShelfPotionList();
+
 		/*
 		copy constructor?
 		overload operators

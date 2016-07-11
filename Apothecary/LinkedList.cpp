@@ -66,8 +66,17 @@ LinkedList& LinkedList:: operator=(LinkedList& passList)
 
 int LinkedList::AppendHead(Node& passNode) 
 {
-	//create Node
-	//setNodeIntoPostion
+	//case: empty or not
+	if (this->getHead() == nullptr)
+	{
+		head = tail = &passNode;
+	}
+	else
+	{
+		passNode.SetNext(head);
+		head = &passNode;
+	}
+	
 	return ZERO;
 }
 

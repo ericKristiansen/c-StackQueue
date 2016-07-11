@@ -45,7 +45,7 @@ bool Queue::IsEmpty()
 	return result;
 }
 
-int Queue::PrintList()
+int Queue::PrintOrderList()
 {
 	orderList.PrintList();
 	return ZERO;

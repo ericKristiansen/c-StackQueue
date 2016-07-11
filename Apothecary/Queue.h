@@ -23,7 +23,7 @@ class Queue
 		Node* Peek();
 		//is the queue empty ?
 		bool IsEmpty();
-		int PrintList();
+		int PrintOrderList();
 		/*
 		copy constructor?
 		overload operators
