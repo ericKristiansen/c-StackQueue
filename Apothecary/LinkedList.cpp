@@ -4,7 +4,13 @@
 #include "Utilities.h"
 
 
-LinkedList::LinkedList() {}
+#include <iostream>
+using namespace std;
+
+LinkedList::LinkedList() 
+{
+	head = tail = nullptr;
+}
 
 LinkedList::LinkedList(Node& passNode) 
 {
@@ -13,26 +19,37 @@ LinkedList::LinkedList(Node& passNode)
 
 LinkedList::LinkedList(LinkedList& passList) 
 {
+	/*
+
 	//work way through list, and copy nodes
+	Node * tempNode = nullptr;
+	tempNode = passList.getHead();
+	while (head != nullptr)
+	{
+		if (head->GetNext() != nullptr)
+		{
+			Node * newNode = new Node(head->GetPotion());
+
+		}
+	}
+	delete head;
+	delete tail;
+	*/
 }
 
 LinkedList::~LinkedList() 
 {
-	//simplify this
-	Node * currentNode = new Node();
 	Node * tempNode = nullptr;
-	currentNode = head;
-	while (currentNode != nullptr)
+	tempNode = head;
+	while (head != nullptr)
 	{
-		if (currentNode->GetNext() != nullptr)
+		if (head->GetNext() != nullptr)
 		{
-			tempNode = currentNode;
-			currentNode = currentNode->GetNext();
+			tempNode = head;
+			head = head->GetNext();
 			delete tempNode;
 		}
 	}
-	delete currentNode;
-	delete tempNode;
 	delete head;
 	delete tail;
 }
@@ -47,32 +64,34 @@ LinkedList& LinkedList:: operator=(LinkedList& passList)
 	return *this;
 }
 
-int LinkedList::AppendHead(Potion& passPotion) 
+int LinkedList::AppendHead(Node& passNode) 
 {
 	//create Node
 	//setNodeIntoPostion
 	return ZERO;
 }
 
-int LinkedList::RemovePotion(PotionType& passType)
+//remove the head node reference from the list
+Node * LinkedList::RemoveHead()
 {
-	return ZERO;
+	Node * result = new Node();// head;
+	result = head;
+	head = head->GetNext();
+	return result;
 }
 
-int LinkedList::AppendTail(Potion& passPotion)
+int LinkedList::AppendTail(Node& passNode)
 {
-	Node * newNode = new Node(passPotion);
-
 	//case: empty list
 	if (head == tail && tail == nullptr) 
 	{
-		head = tail = newNode;
+		head = tail = &passNode;
 	}
 	else
 	{
 		//not empty: 
-		tail->SetNext(newNode);
-		tail = newNode;
+		tail->SetNext(&passNode);
+		tail = &passNode;
 	}
 
 	//setNodeIntoPostion
@@ -89,11 +108,6 @@ Node* LinkedList::getTail()
 	return tail;
 }
 
-int LinkedList::getPotionListCount() 
-{
-	return ZERO;
-}
-
 int LinkedList::searchForDuplicateItem(Potion& passPotion)
 {
 	//search based on Potion
@@ -104,13 +118,17 @@ int LinkedList::PrintList()
 {
 	//iterate through nodes
 	//print value
-	return ZERO;
-}
+	//string listPotions = NULL;
+	Node * temp = head;
+	cout << "\n*****************************\n";
+	while (temp != nullptr)
+	{
+		cout << PotionTypeString(temp->GetPotionType()) << endl;
+		temp = temp->GetNext();
+	}
+	cout << "\n*****************************\n";
 
-int LinkedList::GetTotalPotions() 
-{
-	//iterate through loop
-	//get total
+
 	return ZERO;
 }
 

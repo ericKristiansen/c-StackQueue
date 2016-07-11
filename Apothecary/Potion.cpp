@@ -11,6 +11,7 @@ Potion::~Potion()
 Potion::Potion()
 {
 	potionCount = ONE;
+	potionType = UNKNOWN;
 }
 
 Potion::Potion(PotionType& passPotionType)

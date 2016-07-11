@@ -18,14 +18,13 @@ class LinkedList
 		LinkedList(LinkedList& passList);
 		~LinkedList();
 		LinkedList & operator=(LinkedList& passList);
-		int AppendTail(Potion& passPotion);
-		int AppendHead(Potion& passPotion);
-		int RemovePotion(PotionType& passType);
+		int AppendTail(Node& passPotion);
+		int AppendHead(Node& passPotion);
+		//int RemovePotion(PotionType& passType);
 		Node* getHead();
 		Node* getTail();
-		int GetTotalPotions();
+		Node* RemoveHead();
 		int PrintList();
-		int getPotionListCount();
 		int searchForDuplicateItem(Potion& passItem);
 		//int GetTotalPotions();
 };

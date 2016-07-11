@@ -5,6 +5,7 @@ class Shelf : public Stack
 {
 	private:
 		int shelfLimit;
+		int shelfPotionCount;
 
 	public:
 		Shelf();
@@ -12,7 +13,11 @@ class Shelf : public Stack
 		~Shelf();
 		Shelf(Shelf& passShelf);
 		Shelf & operator=(Shelf& passShelf);
-		int setShelfLimit(int &passShelfLimit);
-		int &getShelfLimit();
+		int SetShelfLimit(int &passShelfLimit);
+		int& GetShelfLimit();
+		int SetShelfPotionCount(int &passShelfLimit);
+		int& GetShelfPotionCount();
 
+		int IncrementShelfPotionCount();
+		int DecrementShelfPotionCount();
 };

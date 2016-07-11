@@ -1,12 +1,16 @@
 #include "Node.h"
 #include "Utilities.h"
 
-Node::Node() {}
+Node::Node() 
+{
+	nextNode = nullptr;
+}
 Node::~Node() {}
 
 Node::Node(Node & passNode) 
 {
-
+	nodePotion = passNode.GetPotion();
+	nextNode = passNode.GetNext();
 }
 
 Node::Node(Potion & passPotion) 

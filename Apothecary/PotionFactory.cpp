@@ -2,6 +2,9 @@
 #include "Utilities.h"
 #include "main.h"
 
+#include <iostream>
+using namespace std;
+
 PotionFactory::PotionFactory() 
 {
 	orderLimit = 50;
@@ -24,22 +27,48 @@ int PotionFactory::SetOrderLimit(int & passOrderLimit)
 	return ZERO;
 }
 
-int PotionFactory::CreateOrder(PotionType& passPotionType)
+bool PotionFactory::CreateOrder(PotionType& passPotionType)
 {
-	int result = ZERO;
+	bool result = false;
 
 	if (orderCount < orderLimit)
 	{
 		Potion * newPotionOrder = new Potion(passPotionType);
-		Enqueue(*newPotionOrder);
+		Node * newNode = new Node(*newPotionOrder);
+		Enqueue(*newNode);
 		orderCount++;
-		result = ONE;
+		result = true;
 	}
 
+	cout << "Created order:";
+	PrintList();
+
 	return result;
+}
+
+bool PotionFactory::IsEmptyList()
+{
+	return IsEmpty();
+}
+
+int PotionFactory::MakeAllOrders()
+{
+	int count = ZERO;
+
+	//for each item, add to stack, remove from queue
+	//iterate until queue is empty
+
+
+	return count;
 }
 
 int PotionFactory::GetOrderLimit() 
 { 
 	return orderLimit; 
+}
+
+Node * PotionFactory::DequeueNext()
+{
+	return Dequeue();
+	orderCount--;
 }

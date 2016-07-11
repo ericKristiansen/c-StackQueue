@@ -7,22 +7,23 @@ class Queue
 {
 	private:
 		//to be plugged in
-		LinkedList orderList; //head is front, tail is back
+		LinkedList orderList;
 
 	public:
 
 		Queue();
-		Queue(Potion& passPotion);
+		Queue(Node& passPassNode);
 		~Queue();
 
 		//add data to the rear of the queue
-		int Enqueue(Potion& passPotion);
+		int Enqueue(Node& passNode);
 		//remove data from the front of the queue
-		int Dequeue(Potion& passPotion);
+		Node* Dequeue();
 		//retrieve the data from the front of the queue without modifying the queue
-		int Peek(Potion&);
+		Node* Peek();
 		//is the queue empty ?
-		int IsEmpty();
+		bool IsEmpty();
+		int PrintList();
 		/*
 		copy constructor?
 		overload operators

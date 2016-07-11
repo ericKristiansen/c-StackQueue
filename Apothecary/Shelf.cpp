@@ -4,11 +4,13 @@
 Shelf::Shelf() 
 {
 	shelfLimit = DEFAULT_SHELF_VALUE;
+	shelfPotionCount = 0;
 }
 
 Shelf::Shelf(int passShelfLimit) 
 {
 	shelfLimit = passShelfLimit;
+	shelfPotionCount = 0;
 }
 
 Shelf::~Shelf() 
@@ -18,7 +20,9 @@ Shelf::~Shelf()
 
 Shelf::Shelf(Shelf& passShelf)
 {
-	Shelf * newShelf = new Shelf();
+	shelfLimit = passShelf.GetShelfLimit();
+	shelfPotionCount = passShelf.GetShelfPotionCount();
+	//orderList = passShelf.GetShelfPotionList();
 }
 
 Shelf& Shelf:: operator=(Shelf& passShelf)
@@ -31,13 +35,41 @@ Shelf& Shelf:: operator=(Shelf& passShelf)
 	return *this;
 }
 
-int Shelf::setShelfLimit(int& passShelfLimit) 
+int Shelf::SetShelfLimit(int& passShelfLimit) 
 {
 	shelfLimit = passShelfLimit;
 	return ZERO;
 }
 
-int& Shelf::getShelfLimit() 
+int& Shelf::GetShelfLimit() 
 {
 	return shelfLimit;
+}
+
+int Shelf::SetShelfPotionCount(int& passShelfPotionCount)
+{
+	shelfPotionCount = passShelfPotionCount;
+	return ZERO;
+}
+
+int& Shelf::GetShelfPotionCount()
+{
+	return shelfPotionCount;
+}
+
+int Shelf::IncrementShelfPotionCount() 
+{ 
+	shelfPotionCount++; 
+	return ZERO;
+}
+
+int Shelf::DecrementShelfPotionCount() 
+{
+	int result = NEGATIVE_ONE;
+	if (shelfPotionCount > 0)
+	{
+		shelfPotionCount--;
+		result = ONE;
+	}
+	return result;
 }

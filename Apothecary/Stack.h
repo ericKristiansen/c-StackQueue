@@ -10,7 +10,7 @@ class Stack : public LinkedList
 {
 	private:
 		//to be plugged in
-		//Node* currentNode;
+		LinkedList shelfPotionList;
 
 	public:
 

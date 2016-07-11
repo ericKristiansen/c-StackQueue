@@ -3,7 +3,7 @@
 #include "main.h"
 #include "Queue.h"
 
-class PotionFactory : public Queue
+class PotionFactory : Queue
 {
 	private:
 		int orderLimit;
@@ -15,5 +15,8 @@ class PotionFactory : public Queue
 		~PotionFactory();
 		int SetOrderLimit(int& passOrderLimit);
 		int GetOrderLimit();
-		int CreateOrder(PotionType& passPotionType);
+		int MakeAllOrders();
+		bool IsEmptyList();
+		Node* DequeueNext();
+		bool CreateOrder(PotionType& passPotionType);
 };
