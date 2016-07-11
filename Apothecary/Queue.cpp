@@ -1,5 +1,6 @@
 #include "Utilities.h"
 #include "Queue.h"
+#include "Potion.h"
 
 Queue::Queue() 
 {
@@ -17,8 +18,11 @@ Queue::~Queue()
 }
 
 //add data to the rear of the queue
-int Queue::Enqueue(Potion&)
+int Queue::Enqueue(Potion& passPotion)
 {
+	//receive potion, add to list
+	orderList.AppendTail(passPotion);
+
 	return ZERO;
 }
 

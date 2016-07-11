@@ -4,7 +4,7 @@
 //if success, return 1
 int Apothecary::BuyPotion(Potion& passPotion)
 {
-	return ZERO;
+	return 0;
 }
 
 Apothecary::Apothecary()
@@ -15,7 +15,7 @@ Apothecary::Apothecary()
 Apothecary::Apothecary(int passOrderLimit, int passShelfLimit)
 {
 	shelf.setShelfLimit(passShelfLimit);
-	potionFactory.setOrderLimit(passOrderLimit);
+	potionFactory.SetOrderLimit(passOrderLimit);
 }
 
 Apothecary::~Apothecary()
@@ -23,8 +23,11 @@ Apothecary::~Apothecary()
 
 }
 
+/* given a potion type, add potionType to list*/
 bool Apothecary::OrderPotion(PotionType& passPotionType) 
 {
+	potionFactory.CreateOrder(passPotionType);
+
 	return true;
 }
 

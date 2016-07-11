@@ -19,9 +19,31 @@ Potion::Potion(PotionType& passPotionType)
 	potionCount = ONE;
 }
 
+Potion::Potion(Potion& passPotion)
+{
+	this->potionType = passPotion.GetType();
+	this->potionCount = passPotion.GetPotionCount();
+}
+
 PotionType & Potion::GetType()
 {
 	return potionType;
+}
+
+Potion& Potion:: operator=(Potion& passPotion)
+{
+	if (this != &passPotion)
+	{
+		this->potionType = passPotion.GetType();
+		this->potionCount = passPotion.GetPotionCount();
+	}
+	return *this;
+}
+
+int Potion::SetPotionType(PotionType& passPotionType)
+{
+	this->potionType = passPotionType;
+	return ZERO;
 }
 
 int Potion::GetPotionCount()

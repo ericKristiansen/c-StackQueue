@@ -14,7 +14,7 @@ class LinkedList
 
 	public:
 		LinkedList();
-		LinkedList(Node passNode);
+		LinkedList(Node& passNode);
 		LinkedList(LinkedList& passList);
 		~LinkedList();
 		LinkedList & operator=(LinkedList& passList);

@@ -5,7 +5,7 @@
 #ifndef __NODE_H_INCLUDED__   // if not included
 #define __NODE_H_INCLUDED__ 
 
-class Node
+class Node 
 {
 	friend class LinkedList;
 private:

@@ -5,7 +5,6 @@
 /* FIFO Structure, add to tail, take from head*/
 class Queue
 {
-
 	private:
 		//to be plugged in
 		LinkedList orderList; //head is front, tail is back

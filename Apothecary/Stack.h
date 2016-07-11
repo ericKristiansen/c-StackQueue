@@ -1,14 +1,13 @@
 #pragma once
 
 #include "Potion.h"
-
+#include "LinkedList.h"
 
 /* Stack implementation
 as a linked list, head is top, stack pushes to */
 
-class Stack
+class Stack : public LinkedList
 {
-
 	private:
 		//to be plugged in
 		//Node* currentNode;

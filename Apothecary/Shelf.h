@@ -1,7 +1,7 @@
 #pragma once
+#include "Stack.h"
 
-
-class Shelf
+class Shelf : public Stack
 {
 	private:
 		int shelfLimit;
@@ -10,6 +10,9 @@ class Shelf
 		Shelf();
 		Shelf(int passShelfLimit);
 		~Shelf();
+		Shelf(Shelf& passShelf);
+		Shelf & operator=(Shelf& passShelf);
 		int setShelfLimit(int &passShelfLimit);
 		int &getShelfLimit();
+
 };

@@ -13,6 +13,22 @@ Shelf::Shelf(int passShelfLimit)
 
 Shelf::~Shelf() 
 {
+
+}
+
+Shelf::Shelf(Shelf& passShelf)
+{
+	Shelf * newShelf = new Shelf();
+}
+
+Shelf& Shelf:: operator=(Shelf& passShelf)
+{
+	if (this != &passShelf)
+	{
+
+		//implement this guy
+	}
+	return *this;
 }
 
 int Shelf::setShelfLimit(int& passShelfLimit) 

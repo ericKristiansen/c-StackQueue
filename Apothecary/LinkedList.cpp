@@ -6,11 +6,36 @@
 
 LinkedList::LinkedList() {}
 
-LinkedList::LinkedList(Node passNode) {}
+LinkedList::LinkedList(Node& passNode) 
+{
+	head = tail = &passNode;
+}
 
-LinkedList::LinkedList(LinkedList& passList) {}
+LinkedList::LinkedList(LinkedList& passList) 
+{
+	//work way through list, and copy nodes
+}
 
-LinkedList::~LinkedList() {}
+LinkedList::~LinkedList() 
+{
+	//simplify this
+	Node * currentNode = new Node();
+	Node * tempNode = nullptr;
+	currentNode = head;
+	while (currentNode != nullptr)
+	{
+		if (currentNode->GetNext() != nullptr)
+		{
+			tempNode = currentNode;
+			currentNode = currentNode->GetNext();
+			delete tempNode;
+		}
+	}
+	delete currentNode;
+	delete tempNode;
+	delete head;
+	delete tail;
+}
 
 LinkedList& LinkedList:: operator=(LinkedList& passList)
 {
@@ -36,7 +61,20 @@ int LinkedList::RemovePotion(PotionType& passType)
 
 int LinkedList::AppendTail(Potion& passPotion)
 {
-	//create Node
+	Node * newNode = new Node(passPotion);
+
+	//case: empty list
+	if (head == tail && tail == nullptr) 
+	{
+		head = tail = newNode;
+	}
+	else
+	{
+		//not empty: 
+		tail->SetNext(newNode);
+		tail = newNode;
+	}
+
 	//setNodeIntoPostion
 	return ZERO;
 }
