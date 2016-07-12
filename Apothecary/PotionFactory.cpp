@@ -63,8 +63,6 @@ bool PotionFactory::CreateOrder(PotionType& passPotionType)
 		result = true;
 	}
 
-	cout << "orderCount: " << GetOrderCount() << "\n";
-
 	return result;
 }
 

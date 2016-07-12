@@ -53,7 +53,6 @@ void OrderPotion(Apothecary& apo, PotionType type)
 	else {
 		cout << "The order queue is full." << endl;
 	}
-
 }
 
 void MakePotions(Apothecary& apo)
@@ -80,13 +79,10 @@ void TestApothecary()
 	OrderPotion(apo, STRENGTH);
 	OrderPotion(apo, HEALTH);
 
-
-
 	BuyPotion(apo);
 	BuyPotion(apo);
 	BuyPotion(apo);
 	BuyPotion(apo);
-
 
 	MakePotions(apo); //5
 
@@ -131,12 +127,12 @@ void TestApothecary()
 int main() {
 
 	TestApothecary();
+	cout << "\nnot ending?";
 
 #ifdef _WIN32
 	if (_CrtDumpMemoryLeaks()) {
 		cout << "Memory leaks!" << endl;
 	}
 #endif
-
 	return 0;
 }
