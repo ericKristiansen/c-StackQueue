@@ -86,6 +86,10 @@ Node * LinkedList::RemoveHead()
 	Node * result = new Node();// head;
 	result = head;
 	head = head->GetNext();
+	if (head == nullptr)
+	{
+		head = tail = nullptr;
+	}
 	return result;
 }
 
@@ -129,13 +133,14 @@ int LinkedList::PrintList()
 	//print value
 	//string listPotions = NULL;
 	Node * temp = head;
-	cout << "\n*****************************\n";
+
 	while (temp != nullptr)
 	{
+		cout << "\n*****************************\n";
 		cout << PotionTypeString(temp->GetPotionType()) << endl;
 		temp = temp->GetNext();
+		cout << "\n*****************************\n";
 	}
-	cout << "\n*****************************\n";
 
 
 	return ZERO;

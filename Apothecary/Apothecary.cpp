@@ -7,9 +7,20 @@ using namespace std;
 
 
 //if success, return 1
-int Apothecary::BuyPotion(Potion& passPotion)
+bool Apothecary::BuyPotion(Potion& passPotion)
 {
-	return 0;
+	bool result = false;
+	if (shelf.GetShelfPotionCount() > 0)
+	{
+		//pop off stack
+		Node * temp = shelf.Pop();
+		//decrement
+		shelf.DecrementShelfPotionCount();
+		passPotion = temp->GetPotion();
+		result = true;
+	}
+
+	return result;
 }
 
 Apothecary::Apothecary()
@@ -44,15 +55,15 @@ int Apothecary::MakePotions()
 		//get rid of queue
 		Node * topOfStack = potionFactory.DequeueNext();
 		topOfStack->SetNext(nullptr);
-		shelf.AppendHead(*topOfStack);
-		shelf.IncrementShelfPotionCount();
+		shelf.Push(*topOfStack);
 
-		//potionFactory.MakeAllOrders();
-		count++;
+		shelf.IncrementShelfPotionCount();
+		potionFactory.DecrementOrderCount();
 		
+		cout << "Made a " << PotionTypeString(topOfStack->GetPotionType()) << " potion.\n";
+
+		count++;
 	} 
-	PrintOrderList();
-	PrintPotionList();
 
 	return count;
 }

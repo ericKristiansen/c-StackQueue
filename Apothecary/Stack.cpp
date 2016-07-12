@@ -11,20 +11,22 @@ Stack::~Stack()
 
 }
 
-int Stack::Push(const Potion&) 
+int Stack::Push(Node& passNode) 
 {
+	shelfPotionList.AppendHead(passNode);
 	return ZERO;
 }
 
 int Stack::PrintShelfPotionList()
 {
 	shelfPotionList.PrintList();
+	return ZERO;
 }
 
 //remove data from the top of the stack
-int Stack::Pop(Potion&) 
+Node* Stack::Pop() 
 {
-	return ZERO;
+	return shelfPotionList.RemoveHead();
 }
 
 //retrieve the data at the top of the stack without modifying the stack

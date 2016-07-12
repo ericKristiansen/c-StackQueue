@@ -2,6 +2,9 @@
 #include "Queue.h"
 #include "Potion.h"
 
+#include <iostream>
+using namespace std;
+
 Queue::Queue() 
 {
 }
@@ -21,15 +24,13 @@ int Queue::Enqueue(Node& passNode)
 {
 	//receive potion, add to list
 	orderList.AppendTail(passNode);
-
 	return ZERO;
 }
 
 //remove data from the front of the queue
 Node* Queue::Dequeue()
 {
-	Node * result = orderList.RemoveHead();
-	return result;
+	return orderList.RemoveHead();
 }
 
 //retrieve the data from the front of the queue without modifying the queue

@@ -79,6 +79,6 @@ int Potion::DecrementPotionCount()
 ostream& operator<<(ostream& os, Potion& passPotion)
 {
 	//string potionTypeName = PotionTypeString(potionType);
-	os << "Potion of " << PotionTypeString(passPotion.GetType());
+	os << "Potion of " << PotionTypeString(passPotion.GetType()) << endl;
 	return os;
 }

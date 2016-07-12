@@ -6,7 +6,7 @@
 /* Stack implementation
 as a linked list, head is top, stack pushes to */
 
-class Stack : public LinkedList
+class Stack
 {
 	private:
 		//to be plugged in
@@ -19,10 +19,10 @@ class Stack : public LinkedList
 		~Stack();
 
 		//add data to the top of the stack
-		int Push(const Potion&);
+		int Push(Node&);
 
 		//remove data from the top of the stack
-		int Pop(Potion&);
+		Node* Pop();
 
 		//retrieve the data at the top of the stack without modifying the stack
 		int Peek(Potion&)const;

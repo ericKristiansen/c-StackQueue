@@ -80,10 +80,15 @@ void TestApothecary()
 	OrderPotion(apo, STRENGTH);
 	OrderPotion(apo, HEALTH);
 
+
+
 	BuyPotion(apo);
 	BuyPotion(apo);
 	BuyPotion(apo);
 	BuyPotion(apo);
+
+	char h;
+	cin >> h;
 
 	MakePotions(apo); //5
 

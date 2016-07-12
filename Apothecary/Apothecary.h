@@ -14,7 +14,7 @@ class Apothecary
 		Apothecary();
 		Apothecary(int passOrderLimit, int passCarryLimit);
 		~Apothecary();
-		int BuyPotion(Potion& passPotion);
+		bool BuyPotion(Potion& passPotion);
 		bool OrderPotion(PotionType& passPotionType);
 		int MakePotions();
 };

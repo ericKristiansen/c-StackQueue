@@ -18,6 +18,17 @@ Shelf::~Shelf()
 
 }
 
+int Shelf::Print()
+{
+	PrintShelfPotionList();
+	return ZERO;
+}
+
+Node* Shelf::PopOffStack()
+{
+	return Pop();
+}
+
 Shelf::Shelf(Shelf& passShelf)
 {
 	shelfLimit = passShelf.GetShelfLimit();

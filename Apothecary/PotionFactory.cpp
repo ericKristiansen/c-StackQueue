@@ -8,13 +8,36 @@ using namespace std;
 PotionFactory::PotionFactory() 
 {
 	orderLimit = 50;
-	orderCount = 0;
+	orderCount = ZERO;
+}
+
+int PotionFactory::PrintListOrders()
+{
+	this->PrintOrderList();
+	return ZERO;
 }
 
 PotionFactory::PotionFactory(int& passOrderLimit) 
 {
 	orderLimit = passOrderLimit;
-	orderCount = 0;
+	orderCount = ZERO;
+}
+
+int PotionFactory::IncrementOrderCount()
+{
+	orderCount++;
+	return ZERO;
+}
+
+int PotionFactory::DecrementOrderCount()
+{
+	int result = NEGATIVE_ONE;
+	if (orderCount > ZERO)
+	{
+		orderCount--;
+		result = ZERO;
+	}
+	return ZERO;
 }
 
 PotionFactory::~PotionFactory() 
@@ -40,12 +63,14 @@ bool PotionFactory::CreateOrder(PotionType& passPotionType)
 		result = true;
 	}
 
+	cout << "orderCount: " << GetOrderCount() << "\n";
+
 	return result;
 }
 
 bool PotionFactory::IsEmptyList()
 {
-	return IsEmpty();
+	return this->IsEmpty();
 }
 
 int PotionFactory::MakeAllOrders()
@@ -59,13 +84,17 @@ int PotionFactory::MakeAllOrders()
 	return count;
 }
 
+int PotionFactory::GetOrderCount()
+{
+	return this->orderCount;
+}
+
 int PotionFactory::GetOrderLimit() 
 { 
-	return orderLimit; 
+	return this->orderLimit; 
 }
 
 Node * PotionFactory::DequeueNext()
 {
-	return Dequeue();
-	orderCount--;
+	return this->Dequeue();
 }

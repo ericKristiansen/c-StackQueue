@@ -17,7 +17,8 @@ class Shelf : public Stack
 		int& GetShelfLimit();
 		int SetShelfPotionCount(int &passShelfLimit);
 		int& GetShelfPotionCount();
-
+		Node* PopOffStack();
+		int Print();
 		int IncrementShelfPotionCount();
 		int DecrementShelfPotionCount();
 };
