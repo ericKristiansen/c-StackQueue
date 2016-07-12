@@ -31,6 +31,7 @@ Apothecary::Apothecary()
 Apothecary::Apothecary(int passOrderLimit, int passShelfLimit)
 {
 	potionFactory.SetOrderLimit(passOrderLimit);
+	shelf.SetShelfLimit(passShelfLimit);
 }
 
 Apothecary::~Apothecary()
@@ -48,22 +49,37 @@ int Apothecary::MakePotions()
 {
 	//Remove item from the queue, and pass to the stack
 	int count = ZERO;
-	while (shelf.GetShelfPotionCount() < shelf.GetShelfLimit() &&
-		!potionFactory.IsEmptyList())
+	bool shelfLimit = shelf.GetShelfPotionCount() < shelf.GetShelfLimit();
+
+	if (!shelfLimit)
 	{
-		//create stack pointers for each node in queue
-		//get rid of queue
-		Node * topOfStack = potionFactory.DequeueNext();
-		topOfStack->SetNext(nullptr);
-		shelf.Push(*topOfStack);
+		cout << "The shelf of potions is full.  You can't make any more"
+			<< " until somebody buys some.\n";
+	}
+	else
+	{
+		while (shelfLimit && !potionFactory.IsEmptyList())
+		{
+			//create stack pointers for each node in queue
+			//get rid of queue
+			Node * topOfStack = potionFactory.DequeueNext();
+			topOfStack->SetNext(nullptr);
+			shelf.Push(*topOfStack);
 
-		shelf.IncrementShelfPotionCount();
-		potionFactory.DecrementOrderCount();
-		
-		cout << "Made a " << PotionTypeString(topOfStack->GetPotionType()) << " potion.\n";
+			shelf.IncrementShelfPotionCount();
+			potionFactory.DecrementOrderCount();
 
-		count++;
-	} 
+			cout << "Made a " << PotionTypeString(topOfStack->GetPotionType()) << " potion.\n";
+
+			count++;
+			shelfLimit = shelf.GetShelfPotionCount() < shelf.GetShelfLimit();
+			if (!shelfLimit)
+			{
+				cout << "The shelf of potions is full.  You can't make any more"
+					<< " until somebody buys some.\n";
+			}
+		}
+	}
 
 	return count;
 }

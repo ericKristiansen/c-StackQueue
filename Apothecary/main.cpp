@@ -87,8 +87,6 @@ void TestApothecary()
 	BuyPotion(apo);
 	BuyPotion(apo);
 
-	char h;
-	cin >> h;
 
 	MakePotions(apo); //5
 
