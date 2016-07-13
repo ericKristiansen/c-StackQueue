@@ -1,5 +1,4 @@
 #pragma once
-
 #include "Node.h"
 
 #ifndef __LINKEDLIST_H_INCLUDED__  

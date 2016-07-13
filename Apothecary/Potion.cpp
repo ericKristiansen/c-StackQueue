@@ -16,6 +16,7 @@ Potion::~Potion()
 }
 
 
+
 Potion::Potion(PotionType& passPotionType)
 {
 	potionType = passPotionType;
@@ -29,6 +30,7 @@ Potion::Potion(Potion& passPotion)
 }
 
 
+
 PotionType & Potion::GetType()
 {
 	return potionType;
@@ -38,6 +40,7 @@ int Potion::GetPotionCount()
 {
 	return potionCount;
 }
+
 
 
 int Potion::SetPotionType(PotionType& passPotionType)
@@ -51,6 +54,7 @@ int Potion::SetPotionCount(int& passPotionCount)
 	potionCount = passPotionCount;
 	return ZERO;
 }
+
 
 
 int Potion::IncrementPotionCount() 
@@ -72,6 +76,7 @@ int Potion::DecrementPotionCount()
 }
 
 
+
 //Provide a basic assignment operation.
 Potion& Potion::operator=(Potion& passPotion)
 {
@@ -84,7 +89,8 @@ Potion& Potion::operator=(Potion& passPotion)
 }
 
 
-//Provide a basic "ToString" functionality.
+
+//Provide a basic "tostring" functionality.
 ostream& operator<<(ostream& os, Potion& passPotion)
 {
 	os << "Potion of " << PotionTypeString(passPotion.GetType()) << endl;

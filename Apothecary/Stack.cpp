@@ -13,6 +13,7 @@ Stack::~Stack()
 }
 
 
+
 //Push data to the top of the stack.
 int Stack::Push(Node& passNode) 
 {
@@ -27,7 +28,8 @@ Node* Stack::Pop()
 }
 
 
-//Peek at the next data item without modifying.
+
+//Peek at the next data item without modifying it.
 Node* Stack::Peek() 
 {
 	return shelfPotionList.GetHead();
@@ -38,6 +40,7 @@ bool Stack::IsEmpty()
 {
 	return shelfPotionList.GetHead() == nullptr;
 }
+
 
 
 int Stack::PrintShelfPotionList()

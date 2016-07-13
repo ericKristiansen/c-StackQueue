@@ -28,6 +28,7 @@ LinkedList::~LinkedList()
 }
 
 
+
 //Instantiate a LinkedList class with a single node.
 LinkedList::LinkedList(Node& passNode) 
 {
@@ -41,6 +42,7 @@ LinkedList::LinkedList(LinkedList& passList)
 }
 
 
+
 Node* LinkedList::GetHead()
 {
 	return head;
@@ -50,6 +52,7 @@ Node* LinkedList::GetTail()
 {
 	return tail;
 }
+
 
 
 //Remove, and return the head of the list.
@@ -63,6 +66,7 @@ Node * LinkedList::RemoveHead()
 	}
 	return result;
 }
+
 
 
 int LinkedList::AppendHead(Node& passNode) 
@@ -94,6 +98,7 @@ int LinkedList::AppendTail(Node& passNode)
 	}
 	return ZERO;
 }
+
 
 
 int LinkedList::PrintList() 
@@ -140,6 +145,7 @@ int LinkedList::CopyList(LinkedList& passList)
 	}
 	return ZERO;
 }
+
 
 
 LinkedList& LinkedList::operator=(LinkedList& passList)

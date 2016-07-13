@@ -1,9 +1,9 @@
 #include "Utilities.h"
 #include "Queue.h"
 #include "Potion.h"
-
 #include <iostream>
 using namespace std;
+
 
 Queue::Queue() 
 {
@@ -15,10 +15,12 @@ Queue::~Queue()
 }
 
 
+
 Queue::Queue(Node& passNode)
 {
 	orderList.AppendTail(passNode);
 }
+
 
 
 //add data to the rear of the queue
@@ -35,6 +37,7 @@ Node* Queue::Dequeue()
 }
 
 
+
 //retrieve the data from the front of the queue without modifying the queue
 Node* Queue::Peek()
 {
@@ -46,6 +49,7 @@ bool Queue::IsEmpty()
 	bool result = orderList.GetHead() == nullptr;
 	return result;
 }
+
 
 
 int Queue::PrintOrderList()

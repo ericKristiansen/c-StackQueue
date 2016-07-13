@@ -1,9 +1,15 @@
 #pragma once
-
 #include "Potion.h"
 #include "LinkedList.h"
 
-/* Stack implementation: Pop from head; Push to head */
+#ifndef __STACK_H_INCLUDED__ 
+#define __STACK_H_INCLUDED__ 
+
+/* 
+ * Stack implementation: 
+ * -  Pop from head
+ * -  Push to head 
+ */
 class Stack
 {
 	private:
@@ -22,3 +28,5 @@ class Stack
 		int PrintShelfPotionList();
 
 };
+
+#endif

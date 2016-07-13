@@ -1,8 +1,7 @@
-
 #pragma once
 #include "Potion.h"
 
-#ifndef __NODE_H_INCLUDED__   // if not included
+#ifndef __NODE_H_INCLUDED__ 
 #define __NODE_H_INCLUDED__ 
 
 /*
@@ -12,30 +11,31 @@
 class Node 
 {
 	friend class LinkedList;
-private:
-	Potion nodePotion;
-	Node * nextNode;
 
-public:
-	Node();
-	~Node();
+	private:
+		Potion nodePotion;
+		Node * nextNode;
 
-	Node(Node & passNode);
-	Node(Potion & passPotion);
-	Node(Potion & passPotion, Node * passNext);
+	public:
+		Node();
+		~Node();
 
-	Potion & GetPotion();
-	Node * GetNext();
+		Node(Node & passNode);
+		Node(Potion & passPotion);
+		Node(Potion & passPotion, Node * passNext);
 
-	PotionType & GetPotionType();
-	int GetPotionCount();
+		Potion & GetPotion();
+		Node * GetNext();
 
-	int SetNext(Node * passNode);
+		PotionType & GetPotionType();
+		int GetPotionCount();
 
-	int IncrementPotion();
-	int DecrementPotion();
+		int SetNext(Node * passNode);
 
-	Node & operator=(Node & passNode);
+		int IncrementPotion();
+		int DecrementPotion();
+
+		Node & operator=(Node & passNode);
 
 };
 

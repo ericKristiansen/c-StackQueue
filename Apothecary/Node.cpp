@@ -30,6 +30,7 @@ Node::Node(Potion & passPotion, Node * passNext)
 }
 
 
+
 Potion & Node::GetPotion() 
 {
 	return nodePotion;
@@ -39,6 +40,7 @@ Node * Node::GetNext()
 {
 	return nextNode;
 }
+
 
 
 PotionType & Node::GetPotionType()
@@ -52,11 +54,13 @@ int Node::GetPotionCount()
 }
 
 
+
 int Node::SetNext(Node * passNode)
 {
 	nextNode = passNode;
 	return ZERO;
 }
+
 
 
 int Node::IncrementPotion() 
@@ -70,6 +74,7 @@ int Node::DecrementPotion()
 	nodePotion.DecrementPotionCount();
 	return ZERO;
 }
+
 
 
 Node & Node::operator=(Node & passNode)

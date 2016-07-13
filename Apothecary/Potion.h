@@ -1,9 +1,10 @@
 #pragma once
-
 #include <string>
 #include "main.h"
 using namespace std;
 
+#ifndef __POTION_H_INCLUDED__   // if not included
+#define __POTION_H_INCLUDED__ 
 
 /*
  * This class is intended to serve as the basic data type of our
@@ -40,3 +41,5 @@ public:
 	//Example: "Potion of Speed"
 	friend ostream& operator<<(ostream& os, Potion& passPotion);
 };
+
+#endif

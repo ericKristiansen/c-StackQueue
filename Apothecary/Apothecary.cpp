@@ -4,26 +4,17 @@
 using namespace std;
 
 
-//Return true if we are able to buy a potion.
-bool Apothecary::BuyPotion(Potion& passPotion)
-{
-	bool result = false;
-	if (shelf.GetShelfPotionCount() > 0)
-	{
-		//pop off stack
-		Node * temp = shelf.Pop();
-		//decrement
-		shelf.DecrementShelfPotionCount();
-		passPotion = temp->GetPotion();
-		result = true;
-	}
-	return result;
-}
-
 Apothecary::Apothecary()
 {
 
 }
+
+Apothecary::~Apothecary()
+{
+
+}
+
+
 
 Apothecary::Apothecary(int passOrderLimit, int passShelfLimit)
 {
@@ -31,9 +22,22 @@ Apothecary::Apothecary(int passOrderLimit, int passShelfLimit)
 	shelf.SetShelfLimit(passShelfLimit);
 }
 
-Apothecary::~Apothecary()
-{
 
+
+//Return true if we are able to buy a potion.
+bool Apothecary::BuyPotion(Potion& passPotion)
+{
+	bool result = false;
+	if (shelf.GetShelfPotionCount() > ZERO)
+	{
+		Node * temp = shelf.Pop();
+
+		passPotion = temp->GetPotion();
+
+		shelf.DecrementShelfPotionCount();
+		result = true;
+	}
+	return result;
 }
 
 //Given a potion type, add the potionType to the order list.

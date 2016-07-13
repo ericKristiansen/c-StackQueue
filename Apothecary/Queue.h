@@ -2,7 +2,14 @@
 #include "Potion.h"
 #include "LinkedList.h"
 
-/* FIFO Structure: Enqueue to tail; Dequeue from head */
+#ifndef __QUEUE_H_INCLUDED__ 
+#define __QUEUE_H_INCLUDED__ 
+
+/* 
+ * Queue Implementation: 
+ * -  Enqueue to tail
+ * -  Dequeue from head 
+ */
 class Queue
 {
 	private:
@@ -23,3 +30,5 @@ class Queue
 		int PrintOrderList();
 
 };
+
+#endif

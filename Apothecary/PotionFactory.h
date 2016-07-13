@@ -1,8 +1,14 @@
 #pragma once
-
 #include "main.h"
 #include "Queue.h"
 
+#ifndef __POTION_FACTORY_H_INCLUDED__ 
+#define __POTION_FACTORY_H_INCLUDED__ 
+
+/*
+ * This class is intended to do the majority of the work managing potions
+ * to be created.
+*/
 class PotionFactory : Queue
 {
 	private:
@@ -20,14 +26,16 @@ class PotionFactory : Queue
 
 		int SetOrderLimit(int& passOrderLimit);
 
-		int MakeAllOrders();
 		bool CreateOrder(PotionType& passPotionType);
 
 		Node* DequeueNext();
 		bool IsEmptyList();
 
-		int PrintListOrders();
-
 		int IncrementOrderCount();
 		int DecrementOrderCount();
+
+		int PrintListOrders();
+
 };
+
+#endif

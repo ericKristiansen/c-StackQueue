@@ -1,22 +1,58 @@
 #include "Shelf.h"
 #include "Utilities.h"
 
+
 Shelf::Shelf() 
 {
 	shelfLimit = DEFAULT_SHELF_VALUE;
 	shelfPotionCount = 0;
 }
 
+Shelf::~Shelf()
+{
+
+}
+
+
+
 Shelf::Shelf(int passShelfLimit) 
 {
 	shelfLimit = passShelfLimit;
-	shelfPotionCount = 0;
+	shelfPotionCount = ZERO;
 }
 
-Shelf::~Shelf() 
+Shelf::Shelf(Shelf& passShelf)
 {
-
+	CopyShelf(passShelf);
 }
+
+
+
+int& Shelf::GetShelfLimit()
+{
+	return shelfLimit;
+}
+
+int& Shelf::GetShelfPotionCount()
+{
+	return shelfPotionCount;
+}
+
+
+
+int Shelf::SetShelfLimit(int& passShelfLimit)
+{
+	shelfLimit = passShelfLimit;
+	return ZERO;
+}
+
+int Shelf::SetShelfPotionCount(int& passShelfPotionCount)
+{
+	shelfPotionCount = passShelfPotionCount;
+	return ZERO;
+}
+
+
 
 int Shelf::Print()
 {
@@ -29,44 +65,13 @@ Node* Shelf::PopOffStack()
 	return Pop();
 }
 
-Shelf::Shelf(Shelf& passShelf)
+int Shelf::CopyShelf(Shelf& passShelf)
 {
 	shelfLimit = passShelf.GetShelfLimit();
 	shelfPotionCount = passShelf.GetShelfPotionCount();
-	//orderList = passShelf.GetShelfPotionList();
 }
 
-Shelf& Shelf:: operator=(Shelf& passShelf)
-{
-	if (this != &passShelf)
-	{
 
-		//implement this guy
-	}
-	return *this;
-}
-
-int Shelf::SetShelfLimit(int& passShelfLimit) 
-{
-	shelfLimit = passShelfLimit;
-	return ZERO;
-}
-
-int& Shelf::GetShelfLimit() 
-{
-	return shelfLimit;
-}
-
-int Shelf::SetShelfPotionCount(int& passShelfPotionCount)
-{
-	shelfPotionCount = passShelfPotionCount;
-	return ZERO;
-}
-
-int& Shelf::GetShelfPotionCount()
-{
-	return shelfPotionCount;
-}
 
 int Shelf::IncrementShelfPotionCount() 
 { 
@@ -83,4 +88,15 @@ int Shelf::DecrementShelfPotionCount()
 		result = ONE;
 	}
 	return result;
+}
+
+
+
+Shelf& Shelf:: operator=(Shelf& passShelf)
+{
+	if (this != &passShelf)
+	{
+		CopyShelf(passShelf);
+	}
+	return *this;
 }
