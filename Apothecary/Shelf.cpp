@@ -69,6 +69,7 @@ int Shelf::CopyShelf(Shelf& passShelf)
 {
 	shelfLimit = passShelf.GetShelfLimit();
 	shelfPotionCount = passShelf.GetShelfPotionCount();
+	return ZERO;
 }
 
 
