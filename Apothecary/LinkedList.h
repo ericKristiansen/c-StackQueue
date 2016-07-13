@@ -31,6 +31,7 @@ class LinkedList
 		int AppendHead(Node& passPotion);
 
 		int PrintList();
+		int CopyList(LinkedList& passList);
 
 		LinkedList & operator=(LinkedList& passList);
 

@@ -37,33 +37,7 @@ LinkedList::LinkedList(Node& passNode)
 //Copy a LinkedList class object.
 LinkedList::LinkedList(LinkedList& passList) 
 {
-	//work way through list, and copy nodes
-	//case: empty, not empty
-	if (passList.GetHead() == nullptr) //zero
-	{
-		head = tail = nullptr;
-	}
-	else //head exists
-	{
-		head = new Node(*passList.GetHead());
-		Node * thatCurrentNode = passList.GetHead();
-
-		Node * thisPreviousNode = head;
-		Node * thisCurrentNode = head;
-
-		while (thatCurrentNode->GetNext() != nullptr)
-		{
-			thatCurrentNode = thatCurrentNode->GetNext();
-
-			Node * newNode = new Node(*thatCurrentNode);
-			
-			thisCurrentNode->SetNext(newNode);
-			thisPreviousNode = thisCurrentNode;
-			thisCurrentNode = thisCurrentNode->GetNext();
-		}
-
-		tail = thisPreviousNode;
-	}
+	CopyList(passList);
 }
 
 
@@ -81,8 +55,7 @@ Node* LinkedList::GetTail()
 //Remove, and return the head of the list.
 Node * LinkedList::RemoveHead()
 {
-	Node * result = new Node();// head;
-	result = head;
+	Node * result = head;
 	head = head->GetNext();
 	if (head == nullptr)
 	{
@@ -104,7 +77,6 @@ int LinkedList::AppendHead(Node& passNode)
 		passNode.SetNext(head);
 		head = &passNode;
 	}
-	
 	return ZERO;
 }
 
@@ -120,7 +92,6 @@ int LinkedList::AppendTail(Node& passNode)
 		tail->SetNext(&passNode);
 		tail = &passNode;
 	}
-
 	return ZERO;
 }
 
@@ -136,7 +107,37 @@ int LinkedList::PrintList()
 		temp = temp->GetNext();
 		cout << "\n\n";
 	}
+	return ZERO;
+}
 
+int LinkedList::CopyList(LinkedList& passList)
+{
+	//case: empty
+	if (passList.GetHead() == nullptr)
+	{
+		head = tail = nullptr;
+	}
+	else //case: not empty
+	{
+		head = new Node(*passList.GetHead());
+		Node * thatCurrentNode = passList.GetHead();
+
+		Node * thisPreviousNode = head;
+		Node * thisCurrentNode = head;
+
+		while (thatCurrentNode->GetNext() != nullptr)
+		{
+			thatCurrentNode = thatCurrentNode->GetNext();
+
+			Node * newNode = new Node(*thatCurrentNode);
+
+			thisCurrentNode->SetNext(newNode);
+			thisPreviousNode = thisCurrentNode;
+			thisCurrentNode = thisCurrentNode->GetNext();
+		}
+
+		tail = thisPreviousNode;
+	}
 	return ZERO;
 }
 
@@ -145,36 +146,12 @@ LinkedList& LinkedList::operator=(LinkedList& passList)
 {
 	if (this != &passList)
 	{
-		//work way through list, and copy nodes
-		//case: empty
-		if (passList.GetHead() == nullptr)
-		{
-			head = tail = nullptr;
-		}
-		else //case: not empty
-		{
-			head = new Node(*passList.GetHead());
-			Node * thatCurrentNode = passList.GetHead();
-
-			Node * thisPreviousNode = head;
-			Node * thisCurrentNode = head;
-
-			while (thatCurrentNode->GetNext() != nullptr)
-			{
-				thatCurrentNode = thatCurrentNode->GetNext();
-
-				Node * newNode = new Node(*thatCurrentNode);
-
-				thisCurrentNode->SetNext(newNode);
-				thisPreviousNode = thisCurrentNode;
-				thisCurrentNode = thisCurrentNode->GetNext();
-			}
-
-			tail = thisPreviousNode;
-		}
+		CopyList(passList);
 	}
 	return *this;
 }
+
+
 
 
 
