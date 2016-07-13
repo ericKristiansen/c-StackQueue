@@ -11,6 +11,11 @@ PotionFactory::PotionFactory()
 	orderCount = ZERO;
 }
 
+PotionFactory::~PotionFactory()
+{
+
+}
+
 int PotionFactory::PrintListOrders()
 {
 	this->PrintOrderList();
@@ -40,9 +45,7 @@ int PotionFactory::DecrementOrderCount()
 	return ZERO;
 }
 
-PotionFactory::~PotionFactory() 
-{
-}
+
 
 int PotionFactory::SetOrderLimit(int & passOrderLimit) 
 {

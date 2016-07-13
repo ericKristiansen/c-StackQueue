@@ -1,11 +1,16 @@
 #include "Node.h"
 #include "Utilities.h"
 
+
 Node::Node() 
 {
 	nextNode = nullptr;
 }
-Node::~Node() {}
+
+Node::~Node() 
+{
+}
+
 
 Node::Node(Node & passNode) 
 {
@@ -24,6 +29,7 @@ Node::Node(Potion & passPotion, Node * passNext)
 	nextNode = passNext;
 }
 
+
 Potion & Node::GetPotion() 
 {
 	return nodePotion;
@@ -34,15 +40,24 @@ Node * Node::GetNext()
 	return nextNode;
 }
 
-Node & Node::operator=(Node & passNode) 
+
+PotionType & Node::GetPotionType()
 {
-	if (this != & passNode)
-	{
-		nextNode = passNode.GetNext();
-		nodePotion = passNode.GetPotion();
-	}
-	return * this;
+	return nodePotion.GetType();
 }
+
+int Node::GetPotionCount()
+{
+	return nodePotion.GetPotionCount();
+}
+
+
+int Node::SetNext(Node * passNode)
+{
+	nextNode = passNode;
+	return ZERO;
+}
+
 
 int Node::IncrementPotion() 
 {
@@ -56,19 +71,13 @@ int Node::DecrementPotion()
 	return ZERO;
 }
 
-int Node::GetPotionCount() 
-{
-	nodePotion.GetPotionCount();
-	return ZERO;
-}
 
-int Node::SetNext(Node * passNode)
+Node & Node::operator=(Node & passNode)
 {
-	nextNode = passNode;
-	return ZERO;
-}
-
-PotionType & Node::GetPotionType()
-{
-	return nodePotion.GetType();
+	if (this != &passNode)
+	{
+		nextNode = passNode.GetNext();
+		nodePotion = passNode.GetPotion();
+	}
+	return *this;
 }

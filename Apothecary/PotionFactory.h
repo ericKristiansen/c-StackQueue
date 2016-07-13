@@ -11,16 +11,23 @@ class PotionFactory : Queue
 
 	public:
 		PotionFactory();
-		PotionFactory(int& passOrderLimit);
 		~PotionFactory();
-		int SetOrderLimit(int& passOrderLimit);
+
+		PotionFactory(int& passOrderLimit);
+
 		int GetOrderLimit();
 		int GetOrderCount();
+
+		int SetOrderLimit(int& passOrderLimit);
+
 		int MakeAllOrders();
-		bool IsEmptyList();
-		Node* DequeueNext();
 		bool CreateOrder(PotionType& passPotionType);
+
+		Node* DequeueNext();
+		bool IsEmptyList();
+
 		int PrintListOrders();
-		int DecrementOrderCount();
+
 		int IncrementOrderCount();
+		int DecrementOrderCount();
 };

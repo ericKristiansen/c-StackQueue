@@ -2,31 +2,38 @@
 
 #include "Node.h"
 
-#ifndef __LINKEDLIST_H_INCLUDED__   // if not included
+#ifndef __LINKEDLIST_H_INCLUDED__  
 #define __LINKEDLIST_H_INCLUDED__ 
 
+/*
+ * This is a basic linked list class to be implemented in the
+ * program's data structures.
+*/
 class LinkedList
 {
-
 	private:
 		Node* head;
 		Node* tail;
 
 	public:
 		LinkedList();
+		~LinkedList();
+
 		LinkedList(Node& passNode);
 		LinkedList(LinkedList& passList);
-		~LinkedList();
-		LinkedList & operator=(LinkedList& passList);
+
+		Node* GetHead();
+		Node* GetTail();
+
+		Node* RemoveHead();
+
 		int AppendTail(Node& passPotion);
 		int AppendHead(Node& passPotion);
-		//int RemovePotion(PotionType& passType);
-		Node* getHead();
-		Node* getTail();
-		Node* RemoveHead();
+
 		int PrintList();
-		int searchForDuplicateItem(Potion& passItem);
-		//int GetTotalPotions();
+
+		LinkedList & operator=(LinkedList& passList);
+
 };
 
 #endif 

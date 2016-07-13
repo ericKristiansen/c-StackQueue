@@ -4,10 +4,16 @@
 #include "main.h"
 using namespace std;
 
+
+/*
+ * This class is intended to serve as the basic data type of our
+ * lists that make up our data structures.
+ * In context of the program, A "Potion" has a defined type taken from "main.h",
+ * and a potionCount, which may or maynot be implemented in this solution.
+*/
 class Potion
 {
 private:
-
 	PotionType potionType;
 	int potionCount;
 
@@ -22,12 +28,15 @@ public:
 	PotionType& GetType();
 	int GetPotionCount();
 
-	int SetPotionCount(int& passPotionCount);
 	int SetPotionType(PotionType& passPotionType);
+	int SetPotionCount(int& passPotionCount);
 
 	int IncrementPotionCount();
 	int DecrementPotionCount();
 
 	Potion& operator=(Potion& passPotion);
+
+	//Provide a basic "ToString" functionality.
+	//Example: "Potion of Speed"
 	friend ostream& operator<<(ostream& os, Potion& passPotion);
 };

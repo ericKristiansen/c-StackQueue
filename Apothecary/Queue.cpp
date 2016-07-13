@@ -9,20 +9,21 @@ Queue::Queue()
 {
 }
 
-Queue::Queue(Node& passNode)
-{
-	orderList.AppendTail(passNode);
-}
-
 Queue::~Queue()
 {
 
 }
 
+
+Queue::Queue(Node& passNode)
+{
+	orderList.AppendTail(passNode);
+}
+
+
 //add data to the rear of the queue
 int Queue::Enqueue(Node& passNode)
 {
-	//receive potion, add to list
 	orderList.AppendTail(passNode);
 	return ZERO;
 }
@@ -33,18 +34,19 @@ Node* Queue::Dequeue()
 	return orderList.RemoveHead();
 }
 
+
 //retrieve the data from the front of the queue without modifying the queue
 Node* Queue::Peek()
 {
-	return orderList.getHead();
+	return orderList.GetHead();
 }
 
-//is the queue empty ?
 bool Queue::IsEmpty()
 {
-	bool result = orderList.getHead() == nullptr;
+	bool result = orderList.GetHead() == nullptr;
 	return result;
 }
+
 
 int Queue::PrintOrderList()
 {
