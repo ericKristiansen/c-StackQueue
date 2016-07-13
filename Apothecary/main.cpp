@@ -127,7 +127,6 @@ void TestApothecary()
 int main() {
 
 	TestApothecary();
-	cout << "\nnot ending?";
 
 #ifdef _WIN32
 	if (_CrtDumpMemoryLeaks()) {
