@@ -4,15 +4,18 @@
 #include <string>
 
 
-Potion::~Potion()
-{
-}
-
 Potion::Potion()
 {
 	potionCount = ONE;
 	potionType = UNKNOWN;
 }
+
+Potion::~Potion()
+{
+
+}
+
+
 
 Potion::Potion(PotionType& passPotionType)
 {
@@ -26,25 +29,11 @@ Potion::Potion(Potion& passPotion)
 	this->potionCount = passPotion.GetPotionCount();
 }
 
+
+
 PotionType & Potion::GetType()
 {
 	return potionType;
-}
-
-Potion& Potion:: operator=(Potion& passPotion)
-{
-	if (this != &passPotion)
-	{
-		this->potionType = passPotion.GetType();
-		this->potionCount = passPotion.GetPotionCount();
-	}
-	return *this;
-}
-
-int Potion::SetPotionType(PotionType& passPotionType)
-{
-	this->potionType = passPotionType;
-	return ZERO;
 }
 
 int Potion::GetPotionCount()
@@ -53,11 +42,20 @@ int Potion::GetPotionCount()
 }
 
 
+
+int Potion::SetPotionType(PotionType& passPotionType)
+{
+	this->potionType = passPotionType;
+	return ZERO;
+}
+
 int Potion::SetPotionCount(int& passPotionCount)
 {
 	potionCount = passPotionCount;
 	return ZERO;
 }
+
+
 
 int Potion::IncrementPotionCount() 
 {
@@ -65,6 +63,7 @@ int Potion::IncrementPotionCount()
 	return ZERO;
 }
 
+//Return -1 if we cannot decrement.
 int Potion::DecrementPotionCount()
 {
 	int result = NEGATIVE_ONE;
@@ -76,9 +75,24 @@ int Potion::DecrementPotionCount()
 	return result;
 }
 
+
+
+//Provide a basic assignment operation.
+Potion& Potion::operator=(Potion& passPotion)
+{
+	if (this != &passPotion)
+	{
+		this->potionType = passPotion.GetType();
+		this->potionCount = passPotion.GetPotionCount();
+	}
+	return *this;
+}
+
+
+
+//Provide a basic "tostring" functionality.
 ostream& operator<<(ostream& os, Potion& passPotion)
 {
-	//string potionTypeName = PotionTypeString(potionType);
 	os << "Potion of " << PotionTypeString(passPotion.GetType()) << endl;
 	return os;
 }

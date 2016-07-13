@@ -2,32 +2,33 @@
 #include "Potion.h"
 #include "LinkedList.h"
 
-/* FIFO Structure, add to tail, take from head*/
+#ifndef __QUEUE_H_INCLUDED__ 
+#define __QUEUE_H_INCLUDED__ 
+
+/* 
+ * Queue Implementation: 
+ * -  Enqueue to tail
+ * -  Dequeue from head 
+ */
 class Queue
 {
 	private:
-		//to be plugged in
 		LinkedList orderList;
 
 	public:
-
 		Queue();
-		Queue(Node& passPassNode);
 		~Queue();
 
-		//add data to the rear of the queue
-		int Enqueue(Node& passNode);
-		//remove data from the front of the queue
-		Node* Dequeue();
-		//retrieve the data from the front of the queue without modifying the queue
-		Node* Peek();
-		//is the queue empty ?
-		bool IsEmpty();
-		int PrintOrderList();
-		/*
-		copy constructor?
-		overload operators
-		*/
+		Queue(Node& passPassNode);
 
+		int Enqueue(Node& passNode);
+		Node* Dequeue();
+
+		Node* Peek();
+		bool IsEmpty();
+
+		int PrintOrderList();
 
 };
+
+#endif

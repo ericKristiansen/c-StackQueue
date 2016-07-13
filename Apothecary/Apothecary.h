@@ -12,8 +12,10 @@ class Apothecary
 
 	public:
 		Apothecary();
-		Apothecary(int passOrderLimit, int passCarryLimit);
 		~Apothecary();
+
+		Apothecary(int passOrderLimit, int passCarryLimit);
+
 		bool BuyPotion(Potion& passPotion);
 		bool OrderPotion(PotionType& passPotionType);
 		int MakePotions();
