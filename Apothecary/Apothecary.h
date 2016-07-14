@@ -4,6 +4,10 @@
 #include "PotionFactory.h"
 #include "main.h"
 
+#ifndef __APOTHECARY_H_INCLUDED__  
+#define __APOTHECARY_H_INCLUDED__ 
+
+
 class Apothecary
 {
 	private:
@@ -20,3 +24,5 @@ class Apothecary
 		bool OrderPotion(PotionType& passPotionType);
 		int MakePotions();
 };
+
+#endif

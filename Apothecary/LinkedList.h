@@ -26,8 +26,8 @@ class LinkedList
 
 		Node* RemoveHead();
 
-		int AppendTail(Node& passPotion);
-		int AppendHead(Node& passPotion);
+		int AppendTail(Node& passNode);
+		int AppendHead(Node& passNode);
 
 		int PrintList();
 		int CopyList(LinkedList& passList);

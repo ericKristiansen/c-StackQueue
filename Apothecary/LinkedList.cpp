@@ -107,7 +107,7 @@ int LinkedList::PrintList()
 
 	while (temp != nullptr)
 	{
-		cout << "\nCurrent Potions:\n";
+		cout << "\nCurrent List:\n";
 		cout << PotionTypeString(temp->GetPotionType()) << endl;
 		temp = temp->GetNext();
 		cout << "\n\n";
