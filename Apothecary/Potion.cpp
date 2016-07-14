@@ -31,7 +31,7 @@ Potion::Potion(Potion& passPotion)
 
 
 
-PotionType & Potion::GetType()
+PotionType& Potion::GetType()
 {
 	return potionType;
 }

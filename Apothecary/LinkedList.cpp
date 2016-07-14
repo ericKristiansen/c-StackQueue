@@ -12,7 +12,7 @@ LinkedList::LinkedList()
 //Walk through the linked list, and delete each node.
 LinkedList::~LinkedList()
 {
-	Node * tempNode = nullptr;
+	Node* tempNode = nullptr;
 	tempNode = head;
 	while (head != nullptr)
 	{
@@ -56,9 +56,9 @@ Node* LinkedList::GetTail()
 
 
 //Remove, and return the head of the list.
-Node * LinkedList::RemoveHead()
+Node* LinkedList::RemoveHead()
 {
-	Node * result = head;
+	Node* result = head;
 	head = head->GetNext();
 	if (head == nullptr)
 	{
@@ -103,7 +103,7 @@ int LinkedList::AppendTail(Node& passNode)
 
 int LinkedList::PrintList() 
 {
-	Node * temp = head;
+	Node* temp = head;
 
 	while (temp != nullptr)
 	{
@@ -125,16 +125,16 @@ int LinkedList::CopyList(LinkedList& passList)
 	else //case: not empty
 	{
 		head = new Node(*passList.GetHead());
-		Node * thatCurrentNode = passList.GetHead();
+		Node* thatCurrentNode = passList.GetHead();
 
-		Node * thisPreviousNode = head;
-		Node * thisCurrentNode = head;
+		Node* thisPreviousNode = head;
+		Node* thisCurrentNode = head;
 
 		while (thatCurrentNode->GetNext() != nullptr)
 		{
 			thatCurrentNode = thatCurrentNode->GetNext();
 
-			Node * newNode = new Node(*thatCurrentNode);
+			Node* newNode = new Node(*thatCurrentNode);
 
 			thisCurrentNode->SetNext(newNode);
 			thisPreviousNode = thisCurrentNode;

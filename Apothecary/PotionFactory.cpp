@@ -38,7 +38,7 @@ int PotionFactory::GetOrderLimit()
 
 
 
-int PotionFactory::SetOrderLimit(int & passOrderLimit) 
+int PotionFactory::SetOrderLimit(int& passOrderLimit) 
 {
 	orderLimit = passOrderLimit;
 	return ZERO;
@@ -64,7 +64,7 @@ bool PotionFactory::CreateOrder(PotionType& passPotionType)
 
 
 
-Node * PotionFactory::DequeueNext()
+Node* PotionFactory::DequeueNext()
 {
 	return this->Dequeue();
 }

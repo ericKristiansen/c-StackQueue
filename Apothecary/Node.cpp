@@ -13,18 +13,18 @@ Node::~Node()
 
 
 
-Node::Node(Node & passNode) 
+Node::Node(Node& passNode) 
 {
 	nodePotion = passNode.GetPotion();
 	nextNode = passNode.GetNext();
 }
 
-Node::Node(Potion & passPotion) 
+Node::Node(Potion& passPotion) 
 {
 	nodePotion = passPotion;
 }
 
-Node::Node(Potion & passPotion, Node * passNext) 
+Node::Node(Potion& passPotion, Node * passNext) 
 {
 	nodePotion = passPotion;
 	nextNode = passNext;
@@ -32,19 +32,19 @@ Node::Node(Potion & passPotion, Node * passNext)
 
 
 
-Potion & Node::GetPotion() 
+Potion& Node::GetPotion() 
 {
 	return nodePotion;
 }
 
-Node * Node::GetNext() 
+Node* Node::GetNext() 
 {
 	return nextNode;
 }
 
 
 
-PotionType & Node::GetPotionType()
+PotionType& Node::GetPotionType()
 {
 	return nodePotion.GetType();
 }
@@ -56,7 +56,7 @@ int Node::GetPotionCount()
 
 
 
-int Node::SetNext(Node * passNode)
+int Node::SetNext(Node* passNode)
 {
 	nextNode = passNode;
 	return ZERO;
@@ -78,7 +78,7 @@ int Node::DecrementPotion()
 
 
 
-Node & Node::operator=(Node & passNode)
+Node& Node::operator=(Node& passNode)
 {
 	if (this != &passNode)
 	{

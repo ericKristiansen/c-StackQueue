@@ -19,14 +19,14 @@ class Shelf : public Stack
 		Shelf();
 		~Shelf();
 
-		Shelf(int passShelfLimit);
+		Shelf(int& passShelfLimit);
 		Shelf(Shelf& passShelf);
 
 		int& GetShelfLimit();
 		int& GetShelfPotionCount();
 
-		int SetShelfLimit(int &passShelfLimit);
-		int SetShelfPotionCount(int &passShelfLimit);
+		int SetShelfLimit(int& passShelfLimit);
+		int SetShelfPotionCount(int& passShelfLimit);
 		
 		int Print();
 		Node* PopOffStack();
@@ -35,7 +35,7 @@ class Shelf : public Stack
 		int IncrementShelfPotionCount();
 		int DecrementShelfPotionCount();
 
-		Shelf & operator=(Shelf& passShelf);
+		Shelf& operator=(Shelf& passShelf);
 };
 
 #endif

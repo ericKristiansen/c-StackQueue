@@ -30,7 +30,7 @@ bool Apothecary::BuyPotion(Potion& passPotion)
 	bool result = false;
 	if (shelf.GetShelfPotionCount() > ZERO)
 	{
-		Node * temp = shelf.Pop();
+		Node* temp = shelf.Pop();
 
 		passPotion = temp->GetPotion();
 
@@ -62,7 +62,7 @@ int Apothecary::MakePotions()
 	{
 		while (shelfLimit && !potionFactory.IsEmptyList())
 		{
-			Node * topOfStack = potionFactory.DequeueNext();
+			Node* topOfStack = potionFactory.DequeueNext();
 			topOfStack->SetNext(nullptr);
 			shelf.Push(*topOfStack);
 

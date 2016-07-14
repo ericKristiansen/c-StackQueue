@@ -19,7 +19,7 @@ class Stack
 		Stack();
 		~Stack();
 
-		int Push(Node&);
+		int Push(Node& passNode);
 		Node* Pop();
 
 		Node* Peek();

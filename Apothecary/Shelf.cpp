@@ -15,7 +15,7 @@ Shelf::~Shelf()
 
 
 
-Shelf::Shelf(int passShelfLimit) 
+Shelf::Shelf(int& passShelfLimit) 
 {
 	shelfLimit = passShelfLimit;
 	shelfPotionCount = ZERO;

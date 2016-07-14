@@ -14,28 +14,28 @@ class Node
 
 	private:
 		Potion nodePotion;
-		Node * nextNode;
+		Node* nextNode;
 
 	public:
 		Node();
 		~Node();
 
-		Node(Node & passNode);
-		Node(Potion & passPotion);
-		Node(Potion & passPotion, Node * passNext);
+		Node(Node& passNode);
+		Node(Potion& passPotion);
+		Node(Potion& passPotion, Node* passNext);
 
-		Potion & GetPotion();
-		Node * GetNext();
+		Potion& GetPotion();
+		Node* GetNext();
 
-		PotionType & GetPotionType();
+		PotionType& GetPotionType();
 		int GetPotionCount();
 
-		int SetNext(Node * passNode);
+		int SetNext(Node* passNode);
 
 		int IncrementPotion();
 		int DecrementPotion();
 
-		Node & operator=(Node & passNode);
+		Node& operator=(Node& passNode);
 
 };
 
