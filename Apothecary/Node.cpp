@@ -12,6 +12,7 @@ Node::~Node()
 }
 
 
+
 Node::Node(Node & passNode) 
 {
 	nodePotion = passNode.GetPotion();

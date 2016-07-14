@@ -14,32 +14,32 @@ using namespace std;
 */
 class Potion
 {
-private:
-	PotionType potionType;
-	int potionCount;
+	private:
+		PotionType potionType;
+		int potionCount;
 
-public:
+	public:
 
-	Potion();
-	~Potion();
+		Potion();
+		~Potion();
 
-	Potion(PotionType& passPotionType);
-	Potion(Potion& passPotion);
+		Potion(PotionType& passPotionType);
+		Potion(Potion& passPotion);
 
-	PotionType& GetType();
-	int GetPotionCount();
+		PotionType& GetType();
+		int GetPotionCount();
 
-	int SetPotionType(PotionType& passPotionType);
-	int SetPotionCount(int& passPotionCount);
+		int SetPotionType(PotionType& passPotionType);
+		int SetPotionCount(int& passPotionCount);
 
-	int IncrementPotionCount();
-	int DecrementPotionCount();
+		int IncrementPotionCount();
+		int DecrementPotionCount();
 
-	Potion& operator=(Potion& passPotion);
+		Potion& operator=(Potion& passPotion);
 
-	//Provide a basic "ToString" functionality.
-	//Example: "Potion of Speed"
-	friend ostream& operator<<(ostream& os, Potion& passPotion);
+		//Provide a basic "ToString" functionality.
+		//Example: "Potion of Speed"
+		friend ostream& operator<<(ostream& os, Potion& passPotion);
 };
 
 #endif
