@@ -12,22 +12,27 @@ LinkedList::LinkedList()
 //Walk through the linked list, and delete each node.
 LinkedList::~LinkedList()
 {
-	Node* tempNode = nullptr;
-	tempNode = head;
-	while (head != nullptr)
+	Node* currentNode = head;
+
+	while (currentNode != nullptr)
 	{
-		if (head->GetNext() != nullptr)
-		{
-			tempNode = head;
-			head = head->GetNext();
-			delete tempNode;
-		}
+		head = currentNode->GetNext();
+		delete currentNode;
+		currentNode = head;
 	}
+
+	tail = nullptr;
+
 	delete head;
 	delete tail;
+	delete currentNode;
+
 }
 
-
+void LinkedList::clearTailHead()
+{
+	tail = head = nullptr;
+}
 
 //Instantiate a LinkedList class with a single node.
 LinkedList::LinkedList(Node& passNode) 

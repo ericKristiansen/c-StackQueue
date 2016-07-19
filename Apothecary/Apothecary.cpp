@@ -33,6 +33,7 @@ bool Apothecary::BuyPotion(Potion& passPotion)
 		Node* temp = shelf.Pop();
 
 		passPotion = temp->GetPotion();
+		delete temp;
 
 		shelf.DecrementShelfPotionCount();
 		result = true;

@@ -9,6 +9,7 @@ Node::Node()
 
 Node::~Node() 
 {
+	
 }
 
 
@@ -59,6 +60,12 @@ int Node::GetPotionCount()
 int Node::SetNext(Node* passNode)
 {
 	nextNode = passNode;
+	return ZERO;
+}
+
+int Node::SetPotion(PotionType& passPotionType)
+{
+	nodePotion.SetPotionType(passPotionType);
 	return ZERO;
 }
 

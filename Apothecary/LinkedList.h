@@ -32,6 +32,8 @@ class LinkedList
 		int PrintList();
 		int CopyList(LinkedList& passList);
 
+		void clearTailHead();
+
 		LinkedList & operator=(LinkedList& passList);
 
 };

@@ -9,7 +9,7 @@ Stack::Stack()
 
 Stack::~Stack() 
 {
-
+	shelfPotionList.~LinkedList();
 }
 
 

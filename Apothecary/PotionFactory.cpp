@@ -52,8 +52,8 @@ bool PotionFactory::CreateOrder(PotionType& passPotionType)
 
 	if (orderCount < orderLimit)
 	{
-		Potion * newPotionOrder = new Potion(passPotionType);
-		Node * newNode = new Node(*newPotionOrder);
+		Node * newNode = new Node();
+		newNode->SetPotion(passPotionType);
 		Enqueue(*newNode);
 		orderCount++;
 		result = true;

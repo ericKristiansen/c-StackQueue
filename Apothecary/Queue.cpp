@@ -11,7 +11,7 @@ Queue::Queue()
 
 Queue::~Queue()
 {
-
+	orderList.~LinkedList();
 }
 
 

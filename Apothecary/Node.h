@@ -31,6 +31,7 @@ class Node
 		int GetPotionCount();
 
 		int SetNext(Node* passNode);
+		int SetPotion(PotionType& passPotionType);
 
 		int IncrementPotion();
 		int DecrementPotion();
